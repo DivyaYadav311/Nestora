@@ -90,9 +90,9 @@ app.use((req,res,next) => {
   next();
 });
 
-app.get("/", (req, res) => {
-    res.redirect("/listings");
-});
+// app.get("/", (req, res) => {
+//     res.redirect("/listings");
+// });
 
 // app.get("/demouser", async (req,res) => {
 //   let fakeUser = new User({
@@ -107,6 +107,10 @@ app.get("/", (req, res) => {
 app.use("/listings",listingRouter);
 app.use("/listings/:id/reviews",reviewRouter);
 app.use("/", userRouter);
+
+app.get("/", (req, res) => {
+    res.redirect("/listings");
+});
 
 app.use((req, res, next) => {
   next(new ExpressError(404, "Page Not Found!"));

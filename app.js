@@ -59,13 +59,14 @@ const sessionOptions = {
   store,
   secret: process.env.SECRET,
   resave: false,
-  saveUnitialized: true,
+  saveUninitialized: true,
   cookie: {
-    expires: Date.now() + 7 * 24 * 60 * 60 * 1000, //Cookie will expire in 7 weeks(here niem is declared in seconds from now).
+    expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
     maxAge: 7 * 24 * 60 * 60 * 1000,
-    httpOnly: true, //To prevent cross-scripting Tags
+    httpOnly: true,
   },
 };
+
 
 app.use(session(sessionOptions));
 app.use(flash());

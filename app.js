@@ -36,9 +36,9 @@ async function main() {
   await mongoose.connect(dbUrl);
 }
 
-app.get("/", (req, res) => {
-    res.redirect("/listings");
-});
+// app.get("/", (req, res) => {
+//     res.redirect("/listings");
+// });
 
 
 app.set("view engine", "ejs");
@@ -88,6 +88,10 @@ app.use((req,res,next) => {
   res.locals.error = req.flash("error");
   res.locals.currUser = req.user;
   next();
+});
+
+app.get("/", (req, res) => {
+    res.redirect("/listings");
 });
 
 // app.get("/demouser", async (req,res) => {
